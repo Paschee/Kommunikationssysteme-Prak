@@ -74,6 +74,20 @@ class Server {
 
             // Übertragenen Text ausgeben
             println(data)
+			
+			if(data=="senden"){
+				Timer tim=new Timer();
+				tim.schedule(new TimerTask(){
+					
+					void run(){
+						// IPv4-Adresse des Servers vom Namensdienst holen
+						stack.udpSend(dstIpAddr: "0.0.0.0", dstPort: 0,
+										srcPort: 0, sdu: "tttttt")
+					}
+					
+				}, 500,500);
+				
+			}
         }
     }
     //------------------------------------------------------------------------------
