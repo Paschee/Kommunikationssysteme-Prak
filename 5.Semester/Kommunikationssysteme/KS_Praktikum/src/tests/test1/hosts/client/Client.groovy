@@ -52,10 +52,11 @@ class Client {
 
         // HTTP-Header fuer GET-Request
         final String text = "Hallo, hier sendet Ernie!"
-
+		final String ttext="senden";
         /** Anwendungs-PDU */
         String apdu
-
+		String dstIPAddr;
+		String dstPort;
         /** Anwendungsdaten */
         String data
 
@@ -80,7 +81,16 @@ class Client {
 
         // IPv4-Adresse des Servers vom Namensdienst holen
         stack.udpSend(dstIpAddr: "0.0.0.0", dstPort: 0,
-                        srcPort: 0, sdu: text)
+                        srcPort: 0, sdu: ttext)
+		
+		while(true){
+			// Auf UDP-Empfang warten
+			(dstIPAddr, dstPort, data) = stack.udpReceive()
+
+			// Übertragenen Text ausgeben
+			println("Client hat empfangen: "+data.toString())
+		}
+		
     }
     //------------------------------------------------------------------------------
 }
