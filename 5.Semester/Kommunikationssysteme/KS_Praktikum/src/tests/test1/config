@@ -31,7 +31,7 @@ environments {
     virtual1 {
         client {
             // IP-Adresse des Servers
-            //serverIpAddr = "0.0.0.0"
+            //serverIpAddr = "192.168.2.10"
 
             // Name des Servers
             //serverName = ""
@@ -40,13 +40,13 @@ environments {
             //serverPort = 0
 
             // Eigene TCP- und UDP-Portnummer
-            // ownPort = 0
+            // ownPort = 7533
 
             // Standard-Router
-            //defaultRouter = "0.0.0.0"
+            //defaultRouter = "192.168.1.1"
 
             // IP-Adresse des Nameservers
-            //nameServerIpAddr = "0.0.0.0"
+            //nameServerIpAddr = "192.168.1.11"
             //nameServerPort = 0
 
             // Festlegung der Netzwerkanschluesse
@@ -87,15 +87,15 @@ environments {
         server {
             ownPort = 0
             defaultRouter = "0.0.0.0"
-            nameServer = "0.0.0.0"
+            nameServer = "192.168.1.11"
 
             networkConnectors = [
                 [virtual: true,
                  lpName: "lp1",
                  link: tests.test1.links.P2PLink1.id,
                  connector: tests.test1.links.P2PLink1.CONNECTOR_2,
-                 macAddr: "00:00:00:00:00:00",
-                 ipAddr: "0.0.0.0"
+                 macAddr: "01:01:01:03:03:03",
+                 ipAddr: "192.168.2.10"
                 ]
             ]
 
@@ -115,8 +115,8 @@ environments {
                  lpName: "",
                  link: tests.test1.links.Hub1.id,
                  connector: tests.test1.links.Hub1.HUB_PORT_3,
-                 macAddr: "00:00:00:00:00:00",
-                 ipAddr: "0.0.0.0"
+                 macAddr: "01:01:01:02:02:02",
+                 ipAddr: "192.168.1.11"
                 ]
             ]
 
