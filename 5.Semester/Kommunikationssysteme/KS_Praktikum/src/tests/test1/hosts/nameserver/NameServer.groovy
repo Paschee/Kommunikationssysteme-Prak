@@ -60,9 +60,14 @@ class NameServer {
         stack.start(config)
 
         Utils.writeLog("NameServer", "server", "startet", 1)
+        println("Gleich kommts :-)")
+        println(config.size())
+        println("Test (Portnummer ausgeben) : " + config.getProperty("ownPort"))
+        println("Nameserver-IP : " + config.getProperty("networkConnectors").getAt("ipAddr"))
 
         while (run) {
             // Hier Protokoll implentieren
+
             // ...
             sleep(Utils.sec1) // hier nur damit die Schleife nicht ständig laueft
         }
